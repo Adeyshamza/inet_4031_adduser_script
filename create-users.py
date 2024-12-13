@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+#### Student Name: Hamza Mohamed
+#### Program Name: INET Assignment 9
+#### Program Creation Date: 12/12/24
+#### Program Last Updated Date: 12/12/24
 
 #what are these imports being used for?
+# os is used to interact with operating system, re provides regular expressions, and sys talks to the system run time environment
 import os
 import re
 import sys
@@ -9,14 +14,19 @@ def main():
     for line in sys.stdin:
 
         #this "regular expression" is searching for the presence of a character - what is it and why?
+        # it searching for regular expressions
         match = re.match("^#",line)
 
         #what is this field doing?
+        # it removes any blank space and # stores elements
         fields = line.strip().split(':')
 
         #what would an appropriate comment be for describing what this IF statement is checking for?
+        # a good comment explains the if statement
         #what happens if the IF statement evaluates to true?
+        # then it would be followed up with true
         #how does this IF statement rely on what happened in the prior two lines of code? The match and fields lines.
+        # if statements rely on what happens before because it is dependant
         if match or len(fields) != 5:
             continue
 
@@ -35,6 +45,7 @@ def main():
 
         for group in groups:
             #what is this if statement looking for?
+            # it ensures the user got added to the group.
             if group != '-':
                 print("==> Assigning %s to the %s group..." % (username,group))
                 cmd = "/usr/sbin/adduser %s %s" % (username,group)
